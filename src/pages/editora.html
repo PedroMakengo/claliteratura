@@ -10,12 +10,138 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap"
       rel="stylesheet"
     />
-
-    <link rel="stylesheet" href="../../styles/output.css" />
+    <link rel="stylesheet" href="/styles/output.css" />
   </head>
-  <body>
+  <body class="bg-gray-50">
+    <header
+      class="bg-[url('/public/assets/banner.svg')] h-28 bg-no-repeat bg-cover border-b-2 border-gray-100 py-4 flex items-center"
+    >
+      <div class="flex justify-between items-center w-7xl mx-auto">
+        <div class="flex gap-6 items-center justify-center">
+          <img
+            src="/public/assets/logo-white.png"
+            alt="Logo Cla da Literatura"
+            class="h-15 object-cover -mt-6"
+          />
+          <nav>
+            <ul class="flex gap-4">
+              <li>
+                <a href="/src/index.html" class="text-white hover:text-amber-50"
+                  >Página Inicial</a
+                >
+              </li>
+              <li>
+                <a href="livraria.html" class="text-white hover:text-amber-50"
+                  >Livraria</a
+                >
+              </li>
+              <li>
+                <a href="editora.html" class="text-white hover:text-amber-50"
+                  >Editoras</a
+                >
+              </li>
+              <li>
+                <a href="blog.html" class="text-white hover:text-amber-50"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="historia.html" class="text-white hover:text-amber-50"
+                  >História</a
+                >
+              </li>
+              <li>
+                <a
+                  href="agenda-cultural.html"
+                  class="text-white hover:text-amber-50"
+                  >Agenda Cultural</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="flex gap-6 justify-center items-center">
+          <form class="flex gap-2 items-center bg-white rounded-md px-3 py-2">
+            <button type="submit">
+              <i data-lucide="search" class="text-gray-500 h-4 w-4"></i>
+            </button>
+            <input
+              type="search"
+              placeholder="Buscar livros, autores"
+              class="focus:outline-none w-full"
+            />
+          </form>
+
+          <div class="flex gap-6">
+            <a href="cart.html" class="relative">
+              <i data-lucide="shopping-cart" class="text-white h-6 w-6"></i>
+              <span
+                class="absolute -top-2 -right-2 bg-amber-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center"
+                >3</span
+              >
+            </a>
+            <a href="login.html">
+              <i data-lucide="user-circle" class="text-white h-6 w-6"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
     <main>
-      <h1 class="text-4xl bg-cyan-300">Editora</h1>
+      <section></section>
     </main>
+
+    <footer
+      class="bg-[url('/public/assets/banner.svg')] text-white bg-no-repeat bg-cover"
+    >
+      <section class="w-7xl mx-auto grid grid-cols-4 gap-8 py-10">
+        <div class="flex flex-col gap-2">
+          <h4 class="font-bold text-xl mb-2">Cla da Literatura</h4>
+          <p>
+            Conectando histórias, autores e leitores em um só lugar. A sua
+            livraria digital favorita .
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <h4 class="font-bold text-xl mb-2">Navegação</h4>
+          <ul class="flex flex-col gap-4">
+            <li><a href="#">Livraria</a></li>
+            <li><a href="#">Editoras Parceiras</a></li>
+            <li><a href="#">Blog Literário</a></li>
+            <li><a href="#">Agenda Cultural</a></li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <h4 class="font-bold text-xl mb-2">Suporte</h4>
+          <ul class="flex flex-col gap-4">
+            <li><a href="#">Central de Ajuda</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Troca e Devoluções</a></li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <h4 class="font-bold text-xl mb-2">Contato</h4>
+          <ul class="flex flex-col gap-4">
+            <li>contato@claliteratura.com</li>
+            <li><a href="#">9999-9999</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="py-8 bg-white text-blue-400 text-center">
+        <p>© 2023 Clã da Literatura - Todos os direitos reservados</p>
+      </section>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>

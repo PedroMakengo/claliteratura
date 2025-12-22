@@ -10,12 +10,700 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/styles/output.css" />
+    <style>
+      input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        background: transparent;
+        pointer-events: none;
+      }
 
-    <link rel="stylesheet" href="../../styles/output.css" />
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #f59e0b;
+        cursor: pointer;
+        pointer-events: auto;
+        border: 3px solid white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      input[type="range"]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #f59e0b;
+        cursor: pointer;
+        pointer-events: auto;
+        border: 3px solid white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+    </style>
   </head>
-  <body>
+  <body class="bg-gray-50">
+    <header
+      class="bg-[url('/public/assets/banner.svg')] h-28 bg-no-repeat bg-cover border-b-2 border-gray-100 py-4 flex items-center"
+    >
+      <div class="flex justify-between items-center w-7xl mx-auto">
+        <div class="flex gap-6 items-center justify-center">
+          <img
+            src="/public/assets/logo-white.png"
+            alt="Logo Cla da Literatura"
+            class="h-15 object-cover -mt-6"
+          />
+          <nav>
+            <ul class="flex gap-4">
+              <li>
+                <a href="/src/index.html" class="text-white hover:text-amber-50"
+                  >Página Inicial</a
+                >
+              </li>
+              <li>
+                <a href="livraria.html" class="text-white hover:text-amber-50"
+                  >Livraria</a
+                >
+              </li>
+              <li>
+                <a href="editora.html" class="text-white hover:text-amber-50"
+                  >Editoras</a
+                >
+              </li>
+              <li>
+                <a href="blog.html" class="text-white hover:text-amber-50"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="historia.html" class="text-white hover:text-amber-50"
+                  >História</a
+                >
+              </li>
+              <li>
+                <a
+                  href="agenda-cultural.html"
+                  class="text-white hover:text-amber-50"
+                  >Agenda Cultural</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="flex gap-6 justify-center items-center">
+          <form class="flex gap-2 items-center bg-white rounded-md px-3 py-2">
+            <button type="submit">
+              <i data-lucide="search" class="text-gray-500 h-4 w-4"></i>
+            </button>
+            <input
+              type="search"
+              placeholder="Buscar livros, autores"
+              class="focus:outline-none w-full"
+            />
+          </form>
+
+          <div class="flex gap-6">
+            <a href="cart.html" class="relative">
+              <i data-lucide="shopping-cart" class="text-white h-6 w-6"></i>
+              <span
+                class="absolute -top-2 -right-2 bg-amber-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center"
+                >3</span
+              >
+            </a>
+            <a href="login.html">
+              <i data-lucide="user-circle" class="text-white h-6 w-6"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
     <main>
-      <h1 class="text-4xl bg-cyan-300">Livraria</h1>
+      <section class="py-10">
+        <div class="mx-auto max-w-7xl px-4 flex flex-col gap-8">
+          <div class="flex flex-col">
+            <h4 class="font-semibold mb-4">
+              <span class="text-gray-500">Home / Livraria /</span> Todos os
+              livros
+            </h4>
+          </div>
+
+          <div class="flex gap-16">
+            <!-- Sidebar de Filtros -->
+            <aside class="w-1/4">
+              <h4 class="text-2xl font-semibold flex gap-2 items-center mb-6">
+                <i data-lucide="filter" class="text-black h-6 w-6"></i>
+                Filtros
+              </h4>
+
+              <!-- Faixa de Preço -->
+              <div class="bg-white rounded-lg border border-gray-200 p-4 mb-4">
+                <h4 class="font-semibold text-lg mb-4">Faixa de preço</h4>
+
+                <div class="relative pt-2 pb-6">
+                  <!-- Track de fundo -->
+                  <div
+                    class="absolute w-full h-2 bg-gray-200 rounded-lg"
+                    style="top: 9px"
+                  ></div>
+
+                  <!-- Track ativo -->
+                  <div
+                    id="range-track"
+                    class="absolute h-2 bg-amber-500 rounded-lg"
+                    style="top: 9px"
+                  ></div>
+
+                  <!-- Sliders -->
+                  <input
+                    type="range"
+                    id="price-min"
+                    min="0"
+                    max="50000"
+                    value="0"
+                    step="100"
+                    class="absolute w-full"
+                    style="top: 0"
+                  />
+                  <input
+                    type="range"
+                    id="price-max"
+                    min="0"
+                    max="50000"
+                    value="50000"
+                    step="100"
+                    class="absolute w-full"
+                    style="top: 0"
+                  />
+                </div>
+
+                <!-- Valores -->
+                <div class="flex justify-between text-sm text-gray-600">
+                  <span
+                    >AOA
+                    <span id="min-display" class="font-semibold text-gray-900"
+                      >0</span
+                    ></span
+                  >
+                  <span
+                    >AOA
+                    <span id="max-display" class="font-semibold text-gray-900"
+                      >50 000</span
+                    ></span
+                  >
+                </div>
+              </div>
+
+              <!-- Gênero -->
+              <div class="border-b-2 border-gray-200 pb-4 mb-4">
+                <h4 class="font-semibold text-lg mb-3">Gênero</h4>
+                <div class="flex flex-col gap-2 text-gray-600">
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-gray-900"
+                  >
+                    <input
+                      type="checkbox"
+                      class="w-4 h-4 text-amber-500 border-gray-300 rounded"
+                    />
+                    Ficção
+                  </label>
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-gray-900"
+                  >
+                    <input
+                      type="checkbox"
+                      class="w-4 h-4 text-amber-500 border-gray-300 rounded"
+                    />
+                    Não-Ficção
+                  </label>
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-gray-900"
+                  >
+                    <input
+                      type="checkbox"
+                      class="w-4 h-4 text-amber-500 border-gray-300 rounded"
+                    />
+                    Romance
+                  </label>
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-gray-900"
+                  >
+                    <input
+                      type="checkbox"
+                      class="w-4 h-4 text-amber-500 border-gray-300 rounded"
+                    />
+                    Poesia
+                  </label>
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-gray-900"
+                  >
+                    <input
+                      type="checkbox"
+                      class="w-4 h-4 text-amber-500 border-gray-300 rounded"
+                    />
+                    Biografia
+                  </label>
+                </div>
+              </div>
+
+              <!-- Autores -->
+              <div class="border-b-2 border-gray-200 pb-4">
+                <h4 class="font-semibold text-lg mb-3">Autores</h4>
+                <div class="flex flex-col gap-2 text-gray-600">
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-gray-900"
+                  >
+                    <input
+                      type="checkbox"
+                      class="w-4 h-4 text-amber-500 border-gray-300 rounded"
+                    />
+                    Miguel Almeida
+                  </label>
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-gray-900"
+                  >
+                    <input
+                      type="checkbox"
+                      class="w-4 h-4 text-amber-500 border-gray-300 rounded"
+                    />
+                    Pedro Makengo
+                  </label>
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-gray-900"
+                  >
+                    <input
+                      type="checkbox"
+                      class="w-4 h-4 text-amber-500 border-gray-300 rounded"
+                    />
+                    Alfredo Monteiro
+                  </label>
+                  <label
+                    class="flex items-center gap-2 cursor-pointer hover:text-gray-900"
+                  >
+                    <input
+                      type="checkbox"
+                      class="w-4 h-4 text-amber-500 border-gray-300 rounded"
+                    />
+                    Guilherme Santos
+                  </label>
+                </div>
+              </div>
+            </aside>
+
+            <!-- Área Principal de Conteúdo -->
+            <div class="w-3/4">
+              <div class="flex justify-between">
+                <h4 class="font-semibold text-2xl">Todos os livros</h4>
+                <div class="flex gap-2 items-center">
+                  <span class="text-gray-500"
+                    >Mostrando 12 de 140 resultados</span
+                  >
+                  <select
+                    class="border border-gray-300 rounded-md py-2 px-4 focus:outline-none"
+                  >
+                    <option value="default">Ordenar por padrão</option>
+                    <option value="price-asc">Preço: menor para maior</option>
+                    <option value="price-desc">Preço: maior para menor</option>
+                    <option value="newest">Mais recentes</option>
+                    <option value="bestselling">Mais vendidos</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-4 gap-4 mt-4">
+                <div class="bg-white rounded-md">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgyHTUQCBXoQP14FaJm5Us1TsbTmvW4wSz4xqwkuJXarzrSiQI9HjMOA6bkVWwPc0_2E2HFHYKVkYW6lthP74Ik7k6FMIhdeDytT4QX1IMrK5BgUYDtXGbyvWRkxO6Qa6p5q0UMq2eJRC0pv9oi5flnSbdIYelaDvKhz_2Ax77SJLsd8RhjKYoY6gkApQgmd9YMa_-TGq75oFcYPSpZHUO4NmuK_JLeavePwwUWjNK-mlgeZEQ1VanR1k5wf0UGp0KAhYjbMu8ras"
+                    alt=""
+                    class="rounded-tl-md rounded-tr-md"
+                  />
+                  <div class="p-4">
+                    <span class="text-gray-800 text-sm font-semibold"
+                      >ROMANCE</span
+                    >
+                    <h4 class="font-semibold text-lg mb-2">Dom Casmurro</h4>
+                    <p class="text-sm text-gray-500">Machado de Assis</p>
+                    <p class="text-amber-500 font-bold">AOA 2 500</p>
+                    <button
+                      class="bg-blue-500 flex w-full text-center justify-center gap-2 mt-4 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                    >
+                      <i
+                        data-lucide="shopping-cart"
+                        class="text-white h-5 w-5"
+                      ></i>
+                      Comprar
+                    </button>
+                  </div>
+                </div>
+                <div class="bg-white rounded-md">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgyHTUQCBXoQP14FaJm5Us1TsbTmvW4wSz4xqwkuJXarzrSiQI9HjMOA6bkVWwPc0_2E2HFHYKVkYW6lthP74Ik7k6FMIhdeDytT4QX1IMrK5BgUYDtXGbyvWRkxO6Qa6p5q0UMq2eJRC0pv9oi5flnSbdIYelaDvKhz_2Ax77SJLsd8RhjKYoY6gkApQgmd9YMa_-TGq75oFcYPSpZHUO4NmuK_JLeavePwwUWjNK-mlgeZEQ1VanR1k5wf0UGp0KAhYjbMu8ras"
+                    alt=""
+                    class="rounded-tl-md rounded-tr-md"
+                  />
+                  <div class="p-4">
+                    <span class="text-gray-800 text-sm font-semibold"
+                      >ROMANCE</span
+                    >
+                    <h4 class="font-semibold text-lg mb-2">Dom Casmurro</h4>
+                    <p class="text-sm text-gray-500">Machado de Assis</p>
+                    <p class="text-amber-500 font-bold">AOA 2 500</p>
+                    <button
+                      class="bg-blue-500 flex w-full text-center justify-center gap-2 mt-4 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                    >
+                      <i
+                        data-lucide="shopping-cart"
+                        class="text-white h-5 w-5"
+                      ></i>
+                      Comprar
+                    </button>
+                  </div>
+                </div>
+                <div class="bg-white rounded-md">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgyHTUQCBXoQP14FaJm5Us1TsbTmvW4wSz4xqwkuJXarzrSiQI9HjMOA6bkVWwPc0_2E2HFHYKVkYW6lthP74Ik7k6FMIhdeDytT4QX1IMrK5BgUYDtXGbyvWRkxO6Qa6p5q0UMq2eJRC0pv9oi5flnSbdIYelaDvKhz_2Ax77SJLsd8RhjKYoY6gkApQgmd9YMa_-TGq75oFcYPSpZHUO4NmuK_JLeavePwwUWjNK-mlgeZEQ1VanR1k5wf0UGp0KAhYjbMu8ras"
+                    alt=""
+                    class="rounded-tl-md rounded-tr-md"
+                  />
+                  <div class="p-4">
+                    <span class="text-gray-800 text-sm font-semibold"
+                      >ROMANCE</span
+                    >
+                    <h4 class="font-semibold text-lg mb-2">Dom Casmurro</h4>
+                    <p class="text-sm text-gray-500">Machado de Assis</p>
+                    <p class="text-amber-500 font-bold">AOA 2 500</p>
+                    <button
+                      class="bg-blue-500 flex w-full text-center justify-center gap-2 mt-4 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                    >
+                      <i
+                        data-lucide="shopping-cart"
+                        class="text-white h-5 w-5"
+                      ></i>
+                      Comprar
+                    </button>
+                  </div>
+                </div>
+                <div class="bg-white rounded-md">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgyHTUQCBXoQP14FaJm5Us1TsbTmvW4wSz4xqwkuJXarzrSiQI9HjMOA6bkVWwPc0_2E2HFHYKVkYW6lthP74Ik7k6FMIhdeDytT4QX1IMrK5BgUYDtXGbyvWRkxO6Qa6p5q0UMq2eJRC0pv9oi5flnSbdIYelaDvKhz_2Ax77SJLsd8RhjKYoY6gkApQgmd9YMa_-TGq75oFcYPSpZHUO4NmuK_JLeavePwwUWjNK-mlgeZEQ1VanR1k5wf0UGp0KAhYjbMu8ras"
+                    alt=""
+                    class="rounded-tl-md rounded-tr-md"
+                  />
+                  <div class="p-4">
+                    <span class="text-gray-800 text-sm font-semibold"
+                      >ROMANCE</span
+                    >
+                    <h4 class="font-semibold text-lg mb-2">Dom Casmurro</h4>
+                    <p class="text-sm text-gray-500">Machado de Assis</p>
+                    <p class="text-amber-500 font-bold">AOA 2 500</p>
+                    <button
+                      class="bg-blue-500 flex w-full text-center justify-center gap-2 mt-4 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                    >
+                      <i
+                        data-lucide="shopping-cart"
+                        class="text-white h-5 w-5"
+                      ></i>
+                      Comprar
+                    </button>
+                  </div>
+                </div>
+                <div class="bg-white rounded-md">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgyHTUQCBXoQP14FaJm5Us1TsbTmvW4wSz4xqwkuJXarzrSiQI9HjMOA6bkVWwPc0_2E2HFHYKVkYW6lthP74Ik7k6FMIhdeDytT4QX1IMrK5BgUYDtXGbyvWRkxO6Qa6p5q0UMq2eJRC0pv9oi5flnSbdIYelaDvKhz_2Ax77SJLsd8RhjKYoY6gkApQgmd9YMa_-TGq75oFcYPSpZHUO4NmuK_JLeavePwwUWjNK-mlgeZEQ1VanR1k5wf0UGp0KAhYjbMu8ras"
+                    alt=""
+                    class="rounded-tl-md rounded-tr-md"
+                  />
+                  <div class="p-4">
+                    <span class="text-gray-800 text-sm font-semibold"
+                      >ROMANCE</span
+                    >
+                    <h4 class="font-semibold text-lg mb-2">Dom Casmurro</h4>
+                    <p class="text-sm text-gray-500">Machado de Assis</p>
+                    <p class="text-amber-500 font-bold">AOA 2 500</p>
+                    <button
+                      class="bg-blue-500 flex w-full text-center justify-center gap-2 mt-4 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                    >
+                      <i
+                        data-lucide="shopping-cart"
+                        class="text-white h-5 w-5"
+                      ></i>
+                      Comprar
+                    </button>
+                  </div>
+                </div>
+                <div class="bg-white rounded-md">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgyHTUQCBXoQP14FaJm5Us1TsbTmvW4wSz4xqwkuJXarzrSiQI9HjMOA6bkVWwPc0_2E2HFHYKVkYW6lthP74Ik7k6FMIhdeDytT4QX1IMrK5BgUYDtXGbyvWRkxO6Qa6p5q0UMq2eJRC0pv9oi5flnSbdIYelaDvKhz_2Ax77SJLsd8RhjKYoY6gkApQgmd9YMa_-TGq75oFcYPSpZHUO4NmuK_JLeavePwwUWjNK-mlgeZEQ1VanR1k5wf0UGp0KAhYjbMu8ras"
+                    alt=""
+                    class="rounded-tl-md rounded-tr-md"
+                  />
+                  <div class="p-4">
+                    <span class="text-gray-800 text-sm font-semibold"
+                      >ROMANCE</span
+                    >
+                    <h4 class="font-semibold text-lg mb-2">Dom Casmurro</h4>
+                    <p class="text-sm text-gray-500">Machado de Assis</p>
+                    <p class="text-amber-500 font-bold">AOA 2 500</p>
+                    <button
+                      class="bg-blue-500 flex w-full text-center justify-center gap-2 mt-4 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                    >
+                      <i
+                        data-lucide="shopping-cart"
+                        class="text-white h-5 w-5"
+                      ></i>
+                      Comprar
+                    </button>
+                  </div>
+                </div>
+                <div class="bg-white rounded-md">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgyHTUQCBXoQP14FaJm5Us1TsbTmvW4wSz4xqwkuJXarzrSiQI9HjMOA6bkVWwPc0_2E2HFHYKVkYW6lthP74Ik7k6FMIhdeDytT4QX1IMrK5BgUYDtXGbyvWRkxO6Qa6p5q0UMq2eJRC0pv9oi5flnSbdIYelaDvKhz_2Ax77SJLsd8RhjKYoY6gkApQgmd9YMa_-TGq75oFcYPSpZHUO4NmuK_JLeavePwwUWjNK-mlgeZEQ1VanR1k5wf0UGp0KAhYjbMu8ras"
+                    alt=""
+                    class="rounded-tl-md rounded-tr-md"
+                  />
+                  <div class="p-4">
+                    <span class="text-gray-800 text-sm font-semibold"
+                      >ROMANCE</span
+                    >
+                    <h4 class="font-semibold text-lg mb-2">Dom Casmurro</h4>
+                    <p class="text-sm text-gray-500">Machado de Assis</p>
+                    <p class="text-amber-500 font-bold">AOA 2 500</p>
+                    <button
+                      class="bg-blue-500 flex w-full text-center justify-center gap-2 mt-4 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                    >
+                      <i
+                        data-lucide="shopping-cart"
+                        class="text-white h-5 w-5"
+                      ></i>
+                      Comprar
+                    </button>
+                  </div>
+                </div>
+                <div class="bg-white rounded-md">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgyHTUQCBXoQP14FaJm5Us1TsbTmvW4wSz4xqwkuJXarzrSiQI9HjMOA6bkVWwPc0_2E2HFHYKVkYW6lthP74Ik7k6FMIhdeDytT4QX1IMrK5BgUYDtXGbyvWRkxO6Qa6p5q0UMq2eJRC0pv9oi5flnSbdIYelaDvKhz_2Ax77SJLsd8RhjKYoY6gkApQgmd9YMa_-TGq75oFcYPSpZHUO4NmuK_JLeavePwwUWjNK-mlgeZEQ1VanR1k5wf0UGp0KAhYjbMu8ras"
+                    alt=""
+                    class="rounded-tl-md rounded-tr-md"
+                  />
+                  <div class="p-4">
+                    <span class="text-gray-800 text-sm font-semibold"
+                      >ROMANCE</span
+                    >
+                    <h4 class="font-semibold text-lg mb-2">Dom Casmurro</h4>
+                    <p class="text-sm text-gray-500">Machado de Assis</p>
+                    <p class="text-amber-500 font-bold">AOA 2 500</p>
+                    <button
+                      class="bg-blue-500 flex w-full text-center justify-center gap-2 mt-4 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                    >
+                      <i
+                        data-lucide="shopping-cart"
+                        class="text-white h-5 w-5"
+                      ></i>
+                      Comprar
+                    </button>
+                  </div>
+                </div>
+                <div class="bg-white rounded-md">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgyHTUQCBXoQP14FaJm5Us1TsbTmvW4wSz4xqwkuJXarzrSiQI9HjMOA6bkVWwPc0_2E2HFHYKVkYW6lthP74Ik7k6FMIhdeDytT4QX1IMrK5BgUYDtXGbyvWRkxO6Qa6p5q0UMq2eJRC0pv9oi5flnSbdIYelaDvKhz_2Ax77SJLsd8RhjKYoY6gkApQgmd9YMa_-TGq75oFcYPSpZHUO4NmuK_JLeavePwwUWjNK-mlgeZEQ1VanR1k5wf0UGp0KAhYjbMu8ras"
+                    alt=""
+                    class="rounded-tl-md rounded-tr-md"
+                  />
+                  <div class="p-4">
+                    <span class="text-gray-800 text-sm font-semibold"
+                      >ROMANCE</span
+                    >
+                    <h4 class="font-semibold text-lg mb-2">Dom Casmurro</h4>
+                    <p class="text-sm text-gray-500">Machado de Assis</p>
+                    <p class="text-amber-500 font-bold">AOA 2 500</p>
+                    <button
+                      class="bg-blue-500 flex w-full text-center justify-center gap-2 mt-4 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                    >
+                      <i
+                        data-lucide="shopping-cart"
+                        class="text-white h-5 w-5"
+                      ></i>
+                      Comprar
+                    </button>
+                  </div>
+                </div>
+                <div class="bg-white rounded-md">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgyHTUQCBXoQP14FaJm5Us1TsbTmvW4wSz4xqwkuJXarzrSiQI9HjMOA6bkVWwPc0_2E2HFHYKVkYW6lthP74Ik7k6FMIhdeDytT4QX1IMrK5BgUYDtXGbyvWRkxO6Qa6p5q0UMq2eJRC0pv9oi5flnSbdIYelaDvKhz_2Ax77SJLsd8RhjKYoY6gkApQgmd9YMa_-TGq75oFcYPSpZHUO4NmuK_JLeavePwwUWjNK-mlgeZEQ1VanR1k5wf0UGp0KAhYjbMu8ras"
+                    alt=""
+                    class="rounded-tl-md rounded-tr-md"
+                  />
+                  <div class="p-4">
+                    <span class="text-gray-800 text-sm font-semibold"
+                      >ROMANCE</span
+                    >
+                    <h4 class="font-semibold text-lg mb-2">Dom Casmurro</h4>
+                    <p class="text-sm text-gray-500">Machado de Assis</p>
+                    <p class="text-amber-500 font-bold">AOA 2 500</p>
+                    <button
+                      class="bg-blue-500 flex w-full text-center justify-center gap-2 mt-4 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                    >
+                      <i
+                        data-lucide="shopping-cart"
+                        class="text-white h-5 w-5"
+                      ></i>
+                      Comprar
+                    </button>
+                  </div>
+                </div>
+                <div class="bg-white rounded-md">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgyHTUQCBXoQP14FaJm5Us1TsbTmvW4wSz4xqwkuJXarzrSiQI9HjMOA6bkVWwPc0_2E2HFHYKVkYW6lthP74Ik7k6FMIhdeDytT4QX1IMrK5BgUYDtXGbyvWRkxO6Qa6p5q0UMq2eJRC0pv9oi5flnSbdIYelaDvKhz_2Ax77SJLsd8RhjKYoY6gkApQgmd9YMa_-TGq75oFcYPSpZHUO4NmuK_JLeavePwwUWjNK-mlgeZEQ1VanR1k5wf0UGp0KAhYjbMu8ras"
+                    alt=""
+                    class="rounded-tl-md rounded-tr-md"
+                  />
+                  <div class="p-4">
+                    <span class="text-gray-800 text-sm font-semibold"
+                      >ROMANCE</span
+                    >
+                    <h4 class="font-semibold text-lg mb-2">Dom Casmurro</h4>
+                    <p class="text-sm text-gray-500">Machado de Assis</p>
+                    <p class="text-amber-500 font-bold">AOA 2 500</p>
+                    <button
+                      class="bg-blue-500 flex w-full text-center justify-center gap-2 mt-4 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                    >
+                      <i
+                        data-lucide="shopping-cart"
+                        class="text-white h-5 w-5"
+                      ></i>
+                      Comprar
+                    </button>
+                  </div>
+                </div>
+                <div class="bg-white rounded-md">
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgyHTUQCBXoQP14FaJm5Us1TsbTmvW4wSz4xqwkuJXarzrSiQI9HjMOA6bkVWwPc0_2E2HFHYKVkYW6lthP74Ik7k6FMIhdeDytT4QX1IMrK5BgUYDtXGbyvWRkxO6Qa6p5q0UMq2eJRC0pv9oi5flnSbdIYelaDvKhz_2Ax77SJLsd8RhjKYoY6gkApQgmd9YMa_-TGq75oFcYPSpZHUO4NmuK_JLeavePwwUWjNK-mlgeZEQ1VanR1k5wf0UGp0KAhYjbMu8ras"
+                    alt=""
+                    class="rounded-tl-md rounded-tr-md"
+                  />
+                  <div class="p-4">
+                    <span class="text-gray-800 text-sm font-semibold"
+                      >ROMANCE</span
+                    >
+                    <h4 class="font-semibold text-lg mb-2">Dom Casmurro</h4>
+                    <p class="text-sm text-gray-500">Machado de Assis</p>
+                    <p class="text-amber-500 font-bold">AOA 2 500</p>
+                    <button
+                      class="bg-blue-500 flex w-full text-center justify-center gap-2 mt-4 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                    >
+                      <i
+                        data-lucide="shopping-cart"
+                        class="text-white h-5 w-5"
+                      ></i>
+                      Comprar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer
+      class="bg-[url('/public/assets/banner.svg')] text-white bg-no-repeat bg-cover"
+    >
+      <section class="w-7xl mx-auto grid grid-cols-4 gap-8 py-10">
+        <div class="flex flex-col gap-2">
+          <h4 class="font-bold text-xl mb-2">Cla da Literatura</h4>
+          <p>
+            Conectando histórias, autores e leitores em um só lugar. A sua
+            livraria digital favorita .
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <h4 class="font-bold text-xl mb-2">Navegação</h4>
+          <ul class="flex flex-col gap-4">
+            <li><a href="#">Livraria</a></li>
+            <li><a href="#">Editoras Parceiras</a></li>
+            <li><a href="#">Blog Literário</a></li>
+            <li><a href="#">Agenda Cultural</a></li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <h4 class="font-bold text-xl mb-2">Suporte</h4>
+          <ul class="flex flex-col gap-4">
+            <li><a href="#">Central de Ajuda</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Troca e Devoluções</a></li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <h4 class="font-bold text-xl mb-2">Contato</h4>
+          <ul class="flex flex-col gap-4">
+            <li>contato@claliteratura.com</li>
+            <li><a href="#">9999-9999</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="py-8 bg-white text-blue-400 text-center">
+        <p>© 2023 Clã da Literatura - Todos os direitos reservados</p>
+      </section>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <script>
+      const minSlider = document.getElementById("price-min");
+      const maxSlider = document.getElementById("price-max");
+      const minDisplay = document.getElementById("min-display");
+      const maxDisplay = document.getElementById("max-display");
+      const rangeTrack = document.getElementById("range-track");
+
+      function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+      }
+
+      function updateDisplays() {
+        let minVal = parseInt(minSlider.value);
+        let maxVal = parseInt(maxSlider.value);
+
+        // Prevenir sobreposição
+        if (minVal > maxVal - 500) {
+          minVal = maxVal - 500;
+          minSlider.value = minVal;
+        }
+
+        if (maxVal < minVal + 500) {
+          maxVal = minVal + 500;
+          maxSlider.value = maxVal;
+        }
+
+        // Atualizar displays com formatação
+        minDisplay.textContent = formatNumber(minVal);
+        maxDisplay.textContent = formatNumber(maxVal);
+
+        // Calcular posição da barra
+        const minPercent = (minVal / 50000) * 100;
+        const maxPercent = (maxVal / 50000) * 100;
+
+        // Atualizar a barra ativa
+        rangeTrack.style.left = minPercent + "%";
+        rangeTrack.style.width = maxPercent - minPercent + "%";
+      }
+
+      minSlider.addEventListener("input", updateDisplays);
+      maxSlider.addEventListener("input", updateDisplays);
+
+      // Inicializar
+      updateDisplays();
+    </script>
   </body>
 </html>
