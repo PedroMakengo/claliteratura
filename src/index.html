@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cla da Literatura</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/styles/output.css" />
+  </head>
+  <body class="bg-gray-50">
+    <header
+      class="bg-[url('/public/assets/banner.svg')] h-28 bg-no-repeat bg-cover border-b-2 border-gray-100 py-4 flex items-center"
+    >
+      <div class="flex justify-between items-center w-7xl mx-auto">
+        <div class="flex gap-6 items-center justify-center">
+          <img
+            src="/public/assets/logo-white.png"
+            alt="Logo Cla da Literatura"
+            class="h-15 object-cover -mt-6"
+          />
+          <nav>
+            <ul class="flex gap-4">
+              <li>
+                <a href="/" class="text-white hover:text-blue-200"
+                  >Página Inicial</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/livraria.html"
+                  class="text-white hover:text-blue-200"
+                  >Livraria</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/editora.html"
+                  class="text-white hover:text-blue-200"
+                  >Editoras</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/blog.html"
+                  class="text-white hover:text-blue-200"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/historia.html"
+                  class="text-white hover:text-blue-200"
+                  >História</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/pages/agenda-cultural.html"
+                  class="text-white hover:text-blue-200"
+                  >Agenda Cultural</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="flex gap-6 justify-center items-center">
+          <form class="flex gap-2 items-center bg-white rounded-md px-3 py-2">
+            <button type="submit">
+              <i data-lucide="search" class="text-gray-500 h-4 w-4"></i>
+            </button>
+            <input
+              type="search"
+              placeholder="Buscar livros, autores"
+              class="focus:outline-none w-full"
+            />
+          </form>
+
+          <div class="flex gap-6">
+            <a href="/pages/cart.html" class="relative">
+              <i data-lucide="shopping-cart" class="text-white h-6 w-6"></i>
+              <span
+                class="absolute -top-2 -right-2 bg-amber-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center"
+                >3</span
+              >
+            </a>
+            <a href="/pages/login.html">
+              <i data-lucide="user-circle" class="text-white h-6 w-6"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="py-6 h-[650px] bg-white">
+        <div class="w-7xl mx-auto flex justify-between items-center h-full">
+          <div class="flex flex-col gap-3">
+            <div
+              class="bg-amber-500/10 px-6 py-2 self-start rounded-full text-amber-500 font-semibold"
+            >
+              <span class="rounded-full bg-amber-500"></span>
+              Nova Curadoria
+            </div>
+            <h1 class="text-6xl font-bold">
+              Descubra histórias <br />
+              que <strong class="text-amber-500">transformam</strong>
+            </h1>
+            <p class="mt-2 w-xl text-lg text-gray-500">
+              Uma plataforma literária desenhada para leitores exigentes e um
+              espaço dedicado para editoras e autores independentes brilharem.
+            </p>
+
+            <div class="flex gap-4 mt-2">
+              <a
+                href="#"
+                class="bg-amber-500 py-2 px-6 rounded-md text-white hover:bg-amber-600"
+                >Explorar Livraria</a
+              >
+              <a
+                href="#"
+                class="bg-white py-2 px-6 rounded-md text-black hover:bg-gray-100 border-gray-200 border"
+                >Saiba Mais</a
+              >
+            </div>
+          </div>
+          <div
+            class="bg-[url('https://lh3.googleusercontent.com/aida-public/AB6AXuCuqeBCht9ky7QHH1TpT6cu2TKp4TArvRsh_UQR44OH54JAcEbcWaNzKPvmlSXwV0Nc2wOhqgaJi0275nWlw7cE0aU4IMh2cLQVQPW7x0NZbZVL6XtdKhWHJR_Xx1t6YxdjQ9eBZhEnfIUuDZNhNGPsI_bqvFPkcBwZYbzJ6qP2Wmh_JCpsp5MR1jC1gdLNy2cr6yWwWqFUGiqn65tnmVuuJFc7sqFj3zJvWr0Hsx2_FSzvtssJff7JjxNHmdm3ax-lbyuDqB2u0nM')] w-1/2 h-[450px] rounded-2xl"
+          ></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
