@@ -90,7 +90,254 @@
     </header>
 
     <main>
-      <section></section>
+      <section class="py-10">
+        <div class="w-7xl mx-auto flex flex-col">
+          <div class="flex flex-col gap-2">
+            <h2 class="text-4xl font-bold">Nossas Editoras Parceiras</h2>
+            <p class="w-2xl text-lg text-gray-500">
+              Uma curadoria especial das melhores casas editorias do mercado.
+              Descubra novas histórias através de quem as publica.
+            </p>
+          </div>
+
+          <div
+            class="bg-white flex flex-col gap-4 justify-between p-8 mt-10 rounded-md shadow-md"
+          >
+            <div class="flex gap-4">
+              <form
+                class="bg-gray-100 w-full flex gap-2 rounded-md overflow-hidden"
+              >
+                <button class="flex justify-center items-center px-5">
+                  <i data-lucide="search" class="text-gray-500 h-4 w-4"></i>
+                </button>
+                <input
+                  type="search"
+                  placeholder="Buscar editora por nome..."
+                  class="w-1/1 py-3 focus:outline-none"
+                />
+              </form>
+              <div class="flex items-center gap-4 w-1/3">
+                <span>Ordenar por:</span>
+                <select
+                  name="ordenar"
+                  id="ordenar"
+                  class="bg-gray-100 py-3 px-6 focus:outline-none rounded-md"
+                >
+                  <option value="nome-asc">Nome (A-Z)</option>
+                  <option value="nome-desc">Nome (Z-A)</option>
+                  <option value="mais-livros">Mais Livros</option>
+                  <option value="menos-livros">Menos Livros</option>
+                </select>
+              </div>
+            </div>
+            <div class="flex gap-2">
+              <span
+                class="bg-amber-500/10 text-amber-500 px-6 py-2 rounded-full font-semibold"
+                >Todos</span
+              >
+              <span class="bg-gray-500/10 text-gray-500 px-6 py-2 rounded-full"
+                >Ficção</span
+              >
+              <span class="bg-gray-500/10 text-gray-500 px-6 py-2 rounded-full"
+                >Poesia</span
+              >
+              <span class="bg-gray-500/10 text-gray-500 px-6 py-2 rounded-full"
+                >Acadêmico</span
+              >
+              <span class="bg-gray-500/10 text-gray-500 px-6 py-2 rounded-full"
+                >Infantil</span
+              >
+              <span class="bg-gray-500/10 text-gray-500 px-6 py-2 rounded-full"
+                >HQ's e Mangás</span
+              >
+            </div>
+          </div>
+
+          <div class="grid grid-cols-4 mt-10 gap-6">
+            <div class="bg-white">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7WdDLYHbSIGY4pxZLh5XBpgEVT0FcfyPFjrP2v7oLtdSf9Fu2p6ahD2OfPF8nHoUFW670GDAz3d0ADQkX2jsm1Dp3N3oEHQQ-20KnvIgas03PCrgZs2V9xBLkgcYkVtEhYEr019J0STownlY8KFbUwcrEZgXdMMTWiSOjH2-FCrLTIGkqB_pP3Od8I2VFIbcvFfT08C5b23fYvMlb59FJx7Wa2BPjdvEhCKdo6Zv0n_zLqPDxndLJ73oA0Pw9trtSmL0WacdN3Nw"
+                alt=""
+                class="h-[210px] w-full object-cover"
+              />
+              <div class="p-4 flex flex-col gap-2">
+                <h3 class="text-md font-semibold">Companhia das Letras</h3>
+                <p class="text-sm text-gray-500">
+                  A maior editora do país, lar de grandes clássicos e
+                  literatura...
+                </p>
+                <a
+                  href="#"
+                  class="text-sm text-amber-500 flex gap-2 items-center"
+                >
+                  ver 124 livros
+                  <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd70OIAlArFm9DbHVG2VowkHgaUAKtMRVVJXqu5guqc-6SR0rrZKs3XLLmEtcfRNFAhMn1gVDDcLDNFJfPsmebP4iTgWPWMqaQIiV2hN1jj0SLRkD5XT4dzs0p86yQ1_2ATJOBKE7HFy4ysH-tuvGm9wWjFGY4x-1CJZcbgEIfYbfObvNlSlrl0t8PZrdP79oCBfhSiEkSq2q8JUgWUkOdXk5DWMAA2fZusyWiVLDlvb1ucgxN4C4kMlr6aO4JtONQoUNfLuWf64w"
+                alt=""
+                class="h-[210px] w-full object-cover"
+              />
+              <div class="p-4 flex flex-col gap-2">
+                <h3 class="text-md font-semibold">Companhia das Letras</h3>
+                <p class="text-sm text-gray-500">
+                  A maior editora do país, lar de grandes clássicos e
+                  literatura...
+                </p>
+                <a
+                  href="#"
+                  class="text-sm text-amber-500 flex gap-2 items-center"
+                >
+                  ver 124 livros
+                  <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzxJ5r_gCHZV3xANFKUWP-YS1IZfzTHYIsLw4pZloWhBByGmZ2rvisfqncdU3-JJk4rqKR70LfVFSqfi76Sv8mzZteoirrzqPEv331czlUycAMxrArPopVEsYim5Oo0qYSs08BF57qjJ-6emHoyZdnuPtZDC7o-y4dWN8ciMVL01R0ocQmR6Zi7iqzIM-JKfRab41FvHaxrP002zLRohcApWvtpm5j_GsyQGnz2956HqdU4fUPYllq8Y0RL17s57kUSvtgTbEZFSg"
+                alt=""
+                class="h-[210px] w-full object-cover"
+              />
+              <div class="p-4 flex flex-col gap-2">
+                <h3 class="text-md font-semibold">Companhia das Letras</h3>
+                <p class="text-sm text-gray-500">
+                  A maior editora do país, lar de grandes clássicos e
+                  literatura...
+                </p>
+                <a
+                  href="#"
+                  class="text-sm text-amber-500 flex gap-2 items-center"
+                >
+                  ver 124 livros
+                  <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF9kIU5CL8jbiC9kp4XEHt8D82bJEy3P6S9Ojswjv4JtxQchh9qvChWqeJyg0tgRiE5Rb0FDasMEmFM8P3pAmy16nbPjxBnMCFnzW-ND8IpctUfsMMiVEt_B69-IJSEVnMlBZKuUK629aGkLANlJ7scuhbW-lkBzruvJoeYe0pIFoy_1gqNWW8DXZg9pRhF2MHiK_NKbl8b4r5Kc2IPMBxr8EnYR9qc7HZ0ONfe_W9XZuEy7ZPXtqHaXzaTT4XHb3LvmmY2O3_FiU"
+                alt=""
+                class="h-[210px] w-full object-cover"
+              />
+              <div class="p-4 flex flex-col gap-2">
+                <h3 class="text-md font-semibold">Companhia das Letras</h3>
+                <p class="text-sm text-gray-500">
+                  A maior editora do país, lar de grandes clássicos e
+                  literatura...
+                </p>
+                <a
+                  href="#"
+                  class="text-sm text-amber-500 flex gap-2 items-center"
+                >
+                  ver 124 livros
+                  <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC781H10GpRdKsshZjh9rQ17quD9QKQT4A4JUbxUKUi9SFKccuylfK_y6RiZw7cBcR9I3OsOhZhYeodmnJnhRNRYi1Sp7trKx1iuFuXKwzkdnn3_GY2uZ5Y1iPlXSrsUX-BL8rIx05BpwksOY35jEcJ7IuReeCk78q6YsGH3c6yn-KHD4xTFoJAyOYIGg65yx7Knfr-fLR5d7GQ6u5s-mFbu5w8UpvwkEOMCHYcXnbfnwa3Um3pTNSn20tSew1-xHWy3IBNavEbrn0"
+                alt=""
+                class="h-[210px] w-full object-cover"
+              />
+              <div class="p-4 flex flex-col gap-2">
+                <h3 class="text-md font-semibold">Companhia das Letras</h3>
+                <p class="text-sm text-gray-500">
+                  A maior editora do país, lar de grandes clássicos e
+                  literatura...
+                </p>
+                <a
+                  href="#"
+                  class="text-sm text-amber-500 flex gap-2 items-center"
+                >
+                  ver 124 livros
+                  <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6zTSewoqN-h2bUkNGQIuJ2sdLbnjZ3J5digvt_yQGTltbgVC3ko_N2nfNxzpMADrR5UcD8yVlpRfegRsnwiAObYIJoxnuPpQ2uW5JUuflFPx_SJ1KkNN2NNlL1baJcVtlOlX6nNXfhO7PogupJNjK74FYDNm-KeOcQyhEDG2FEbpX2Hup7JBW0J6wrLC-sp-wSsuR6uW84ln_haCD8jD_vK_vM7GVCKR8uQF1HAWAaSRMtND4UWAdEAxxKfiPtIrxGjswCQrjG9o"
+                alt=""
+                class="h-[210px] w-full object-cover"
+              />
+              <div class="p-4 flex flex-col gap-2">
+                <h3 class="text-md font-semibold">Companhia das Letras</h3>
+                <p class="text-sm text-gray-500">
+                  A maior editora do país, lar de grandes clássicos e
+                  literatura...
+                </p>
+                <a
+                  href="#"
+                  class="text-sm text-amber-500 flex gap-2 items-center"
+                >
+                  ver 124 livros
+                  <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvqm1nZ2fAMNMvpKjbOaO36bcxPfU6yxZ-8LSwwW4YmC2C-3QmcIgdjSF9jQwYuS25HHmwoqw2RgMrcru5QZ_cR87aoH13JbAg-palNHsu5I79-EKDuEKoXO2hUzuXdi-hXRC5DGX38BdxVItP89Ln-N7ZpUEh8KetmYxysmV5vJt0pDaqdphACPfWBm2FFJ6X39q-q2sdrHHiQ3pqQC7uZzRgNcoMDg9C9DUSaDnqgi27kVV8uxYtFzkcmmT05tjUL6rG2vvFeyA"
+                alt=""
+                class="h-[210px] w-full object-cover"
+              />
+              <div class="p-4 flex flex-col gap-2">
+                <h3 class="text-md font-semibold">Companhia das Letras</h3>
+                <p class="text-sm text-gray-500">
+                  A maior editora do país, lar de grandes clássicos e
+                  literatura...
+                </p>
+                <a
+                  href="#"
+                  class="text-sm text-amber-500 flex gap-2 items-center"
+                >
+                  ver 124 livros
+                  <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWchw9FD3p6i24fSkOnfGhWkQXKv9LfHB5aWt4FFu6vLpML0cDigjoMuBeNl4i0yNsflBwbmX_GOt7suZEL8UTUp7iK6X3XdGU8ftcbf-GKaZZCB8gNMHpBssY3xwjOwY95cuRGbJLXMjJeTa2IosCVYa3l3wRHgTkrYn5VFGnR-R5QUwysb0Pnp6jbmi9m9p4RzMhfE76q5dIEapmt9KmgFM6c2IRAdhpJ8smAfW9RbBySArYZbSqLVDo5IqKqYtu47vczqGs2_E"
+                alt=""
+                class="h-[210px] w-full object-cover"
+              />
+              <div class="p-4 flex flex-col gap-2">
+                <h3 class="text-md font-semibold">Companhia das Letras</h3>
+                <p class="text-sm text-gray-500">
+                  A maior editora do país, lar de grandes clássicos e
+                  literatura...
+                </p>
+                <a
+                  href="#"
+                  class="text-sm text-amber-500 flex gap-2 items-center"
+                >
+                  ver 124 livros
+                  <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-center items-center mt-15">
+            <button class="bg-amber-500 text-white px-4 py-3 rounded-md">
+              Carregar mais editoras
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer
